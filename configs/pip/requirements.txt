@@ -1,0 +1,6 @@
+ipython
+gunicorn
+django
+djangorestframework
+pylibmc
+psycopg2
