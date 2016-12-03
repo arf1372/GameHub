@@ -1,4 +1,4 @@
-# Dooz
+# GameHub
 ```text
 Project Description ...
 ```

@@ -10,8 +10,8 @@ touch /logs/access.log
 tail -n 0 -f /logs/*.log &
 
 # Start Gunicorn processes
-exec gunicorn dooz.wsgi:application \
-    --name dooz \
+exec gunicorn gamehub.wsgi:application \
+    --name gamehub \
     --bind 0.0.0.0:8000 \
     --workers 3 \
     --log-level=info \

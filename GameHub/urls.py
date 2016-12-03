@@ -1,4 +1,4 @@
-"""Dooz URL Configuration
+"""GameHub URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.10/topics/http/urls/
@@ -18,5 +18,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^game/', include('game.urls', namespace='game')),
+    url(r'^games/', include('games.urls', namespace='games')),
+    url(r'^profiles/', include('profiles.urls', namespace='profiles')),
 ]

@@ -297,6 +297,11 @@ bh_unicode_properties.cache
 # https://packagecontrol.io/packages/sublime-github
 GitHub.sublime-settings
 
+
 .idea/
-static/*
-!/static/PLACEHOLDER
+static/
+uploaded/
+
+settings/__init__.py
+
+!PLACEHOLDER

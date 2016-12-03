@@ -9,7 +9,7 @@ services:
   db:
     image: postgres:latest
     environment:
-      - POSTGRES_DB=dooz
+      - POSTGRES_DB=gamehub
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=1234
     volumes_from:
@@ -22,11 +22,10 @@ services:
     ports:
       - '11211'
 
-  dooz:
+  gamehub:
     build: .
-    image: Dooz
     volumes:
-      - .:/home/admin/dooz
+      - .:/home/admin/gamehub
       - ~/.ipython:/root/.ipython
     ports:
       - "8000:8000"

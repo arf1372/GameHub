@@ -1,5 +1,5 @@
 """
-WSGI config for Dooz project.
+WSGI config for GameHub project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
