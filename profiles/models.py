@@ -18,15 +18,24 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user.username
 
+    class Meta:
+        verbose_name = 'User Profile'
+        verbose_name_plural = 'Users Profiles'
+
 
 class Team(models.Model):
     name = models.CharField(verbose_name='Team Name', max_length=20, null=False, blank=False, db_index=True)
     users = models.ManyToManyField(
         UserProfile, verbose_name='Team Users', through='UserTeam', through_fields=('team', 'user')
     )
+    creation_date = models.DateTimeField(verbose_name='Creation Date', auto_now_add=True)
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name = 'Team'
+        verbose_name_plural = 'Teams'
 
 
 class UserTeam(models.Model):

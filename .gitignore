@@ -299,8 +299,17 @@ GitHub.sublime-settings
 
 
 .idea/
-static/
-uploaded/
+static/*
+uploaded/*
+tmp/*
+
+!uploaded/codes
+!uploaded/profile_pictures
+!uploaded/results
+
+uploaded/codes/*
+uploaded/profile_pictures/*
+uploaded/results/*
 
 settings/__init__.py
 
