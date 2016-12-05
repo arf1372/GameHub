@@ -32,9 +32,6 @@ class UserProfileSerializer(serializers.ModelSerializer):
         user_profile = UserProfile.objects.create(user=user, university=university, profile_picture=profile_picture)
         return user_profile
 
-    def update(self, instance, validated_data):
-        pass
-
 
 class TeamSerializer(serializers.ModelSerializer):
     users = UserProfileSerializer(many=True)
@@ -53,6 +50,3 @@ class TeamSerializer(serializers.ModelSerializer):
             UserTeam.objects.create(user=user, team=team)
 
         return team
-
-    def update(self, instance, validated_data):
-        pass
