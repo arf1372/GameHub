@@ -2,6 +2,7 @@ ipython
 gunicorn
 django
 djangorestframework
+djangorestframework-jwt
 pylibmc
 psycopg2
 pillow

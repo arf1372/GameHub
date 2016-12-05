@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 
+from datetime import timedelta
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -73,27 +75,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'GameHub.wsgi.application'
 
 
-# Cache Configuration
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.PyLibMCCache',
-        'LOCATION': 'memcached:11211',
-    },
-}
-
-# Database Configuration
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'gamehub',
-        'USER': 'admin',
-        'PASSWORD': '1234',
-        'HOST': 'db',
-        'PORT': '5432',
-    },
-}
-
-
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
 
@@ -132,3 +113,43 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = './static'
+
+
+# Cache Configuration
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.PyLibMCCache',
+        'LOCATION': 'memcached:11211',
+    },
+}
+
+# Database Configuration
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'gamehub',
+        'USER': 'admin',
+        'PASSWORD': '1234',
+        'HOST': 'db',
+        'PORT': '5432',
+    },
+}
+
+# Django Rest Framework Configuration
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+    ),
+}
+
+# JWT Configuration
+JWT_AUTH = {
+    'JWT_EXPIRATION_DELTA': timedelta(hours=1),
+    'JWT_ALLOW_REFRESH': True,
+    'JWT_REFRESH_EXPIRATION_DELTA': timedelta(days=30)
+}
