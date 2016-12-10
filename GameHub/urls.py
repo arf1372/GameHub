@@ -15,14 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^games/', include('games.urls', namespace='games')),
+    url(r'', include('visage.urls', namespace='visage')),
     url(r'^profiles/', include('profiles.urls', namespace='profiles')),
-
-    # JWT Urls
-    url(r'^obtain_jwt_token/', obtain_jwt_token, name='obtain_jwt_token'),
-    url(r'^refresh_jwt_token/', refresh_jwt_token, name='refresh_jwt_token'),
+    url(r'^games/', include('games.urls', namespace='games')),
+    url(r'^authentication/', include('authentication.urls', namespace='authentication')),
+    url(r'^admin/', admin.site.urls),
 ]

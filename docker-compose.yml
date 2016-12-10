@@ -26,7 +26,6 @@ services:
     build: .
     volumes:
       - .:/home/admin/gamehub
-      - ~/.ipython:/root/.ipython
     ports:
       - "8000:8000"
     links:
