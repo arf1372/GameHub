@@ -33,7 +33,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('university', models.CharField(db_index=True, max_length=50, verbose_name='University')),
-                ('profile_picture', models.ImageField(blank=True, null=True, upload_to='uploaded/profile_pictures/', verbose_name='Profile Picture')),
+                ('profile_picture', models.ImageField(blank=True, null=True, upload_to='profile_pictures/', verbose_name='Profile Picture')),
                 ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL, verbose_name='User Profile')),
             ],
             options={

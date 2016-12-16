@@ -304,12 +304,12 @@ uploaded/*
 tmp/*
 
 !uploaded/codes
-!uploaded/profile_pictures
 !uploaded/results
+!media/profile_pictures
 
 uploaded/codes/*
-uploaded/profile_pictures/*
 uploaded/results/*
+media/profile_pictures/*
 
 settings/__init__.py
 

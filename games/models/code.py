@@ -1,6 +1,13 @@
+import os
+
 from django.db import models
+from django.conf import settings
 
 from profiles.models import Team
+
+
+def upload_path(*args, **kwargs):
+    return os.path.join(settings.BASE_DIR, 'uploaded/codes/')
 
 
 class Code(models.Model):
@@ -19,7 +26,7 @@ class Code(models.Model):
     )
     language = models.CharField(verbose_name='Language', choices=LANGUAGE_CHOICES, max_length=5)
 
-    file = models.FileField(verbose_name='File', upload_to='uploaded/codes/', null=False, blank=False)
+    file = models.FileField(verbose_name='File', upload_to=upload_path, null=False, blank=False)
     upload_date = models.DateTimeField(verbose_name='Upload Date', auto_now_add=True)
 
     class Meta:

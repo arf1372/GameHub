@@ -1,5 +1,11 @@
+from django.conf.urls import url, include
 from rest_framework import routers
 
-router = routers.DefaultRouter()
+from profiles.views import ProfileViewSet
 
-urlpatterns = router.urls
+router = routers.DefaultRouter()
+router.register(r'', ProfileViewSet)
+
+urlpatterns = [
+    url(r'^', include(router.urls))
+]

@@ -10,7 +10,7 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, verbose_name='User Profile', db_index=True)
     university = models.CharField(verbose_name='University', max_length=50, null=False, blank=False, db_index=True)
     profile_picture = models.ImageField(
-        verbose_name='Profile Picture', upload_to='uploaded/profile_pictures/', null=True, blank=True
+        verbose_name='Profile Picture', upload_to='profile_pictures/', null=True, blank=True
     )
 
     objects = UserProfileManager()
