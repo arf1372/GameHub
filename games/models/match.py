@@ -1,4 +1,5 @@
 import os
+import uuid
 
 from django.db import models
 from django.conf import settings
@@ -7,8 +8,9 @@ from games.models.game import Game
 from profiles.models import Team
 
 
-def upload_path(*args, **kwargs):
-    return os.path.join(settings.BASE_DIR, 'uploaded/codes/')
+def upload_path(instance, filename):
+    filename = "{uuid}.{extension}".format(uuid=uuid.uuid4(), extension=filename.split('.')[-1])
+    return os.path.join(settings.BASE_DIR, 'uploaded/results/{filename}'.format(filename=filename))
 
 
 class Match(models.Model):

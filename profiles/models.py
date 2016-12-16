@@ -1,5 +1,14 @@
+import os
+import uuid
+
 from django.db import models
+from django.conf import settings
 from django.contrib.auth.models import User
+
+
+def upload_path(instance, filename):
+    filename = "{uuid}.{extension}".format(uuid=uuid.uuid4(), extension=filename.split('.')[-1])
+    return os.path.join(settings.MEDIA_ROOT, 'profile_pictures/{filename}'.format(filename=filename))
 
 
 class UserProfileManager(models.Manager):
@@ -10,7 +19,7 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, verbose_name='User Profile', db_index=True)
     university = models.CharField(verbose_name='University', max_length=50, null=False, blank=False, db_index=True)
     profile_picture = models.ImageField(
-        verbose_name='Profile Picture', upload_to='profile_pictures/', null=True, blank=True
+        verbose_name='Profile Picture', upload_to=upload_path, null=True, blank=True
     )
 
     objects = UserProfileManager()
