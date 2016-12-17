@@ -1,5 +1,5 @@
 from django.db import transaction
-from rest_framework import viewsets
+from rest_framework import viewsets, parsers
 from rest_framework_jwt import authentication
 
 from profiles import permissions, serializers
@@ -11,6 +11,7 @@ class ProfileViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsCreationOrIsRetrievalOrIsAuthenticated]
     serializer_class = serializers.UserProfileSerializer
     queryset = UserProfile.objects.all()
+    parser_classes = (parsers.JSONParser, parsers.FileUploadParser)
 
     def get_object(self):
         return UserProfile.objects.get(user=self.request.user)

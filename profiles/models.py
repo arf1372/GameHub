@@ -1,14 +1,12 @@
-import os
 import uuid
 
 from django.db import models
-from django.conf import settings
 from django.contrib.auth.models import User
 
 
 def upload_path(instance, filename):
     filename = "{uuid}.{extension}".format(uuid=uuid.uuid4(), extension=filename.split('.')[-1])
-    return os.path.join(settings.MEDIA_ROOT, 'profile_pictures/{filename}'.format(filename=filename))
+    return 'profile_pictures/{filename}'.format(filename=filename)
 
 
 class UserProfile(models.Model):
